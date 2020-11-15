@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "joi": "^17.3.0",
+    "supertest": "^6.0.1",
+    "swagger-ui-express": "^4.1.4"
+  },
+  "name": "unit-test",
+  "version": "1.0.0",
+  "main": "api.js",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "scripts": {
+    "test": "jest --runInBand",
+    "dev": "nodemon api.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

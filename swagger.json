@@ -1,0 +1,130 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Basit bir swagger örneğidir.",
+    "version": "1.0.0",
+    "title": "Unit test API",
+    "contact": {
+      "email": "email@emai.com"
+    }
+  },
+  "host": "localhost:3000",
+  "securityDefinitions": {
+    "auth": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "tags": [
+    {
+      "name": "anasayfa",
+      "description": "Anasayfadaki bazı detaylar."
+    },
+    {
+      "name": "token",
+      "description": "Token üretmek için."
+    },
+    {
+      "name": "gizli",
+      "description": "Gizli olan veriler."
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "anasayfa"
+        ],
+        "summary": "Basit bir get kontrolü.",
+        "description": "Basit bir get kontrolü.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK."
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "anasayfa"
+        ],
+        "summary": "Basit bir post kontrolü.",
+        "description": "Basit bir post kontrolü.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "message",
+            "in": "body",
+            "description": "Mesaj ekle ki görünsün.",
+            "required": true,
+            "schema": {
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK."
+          },
+          "404": {
+            "description": "Mesaj yok!"
+          }
+        }
+      }
+    },
+    "/token": {
+      "post": {
+        "tags": [
+          "token"
+        ],
+        "description": "Token üretme",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "token verildi."
+          }
+        }
+      }
+    },
+    "/private": {
+      "post": {
+        "tags": [
+          "gizli"
+        ],
+        "description": "Gizli endpoint",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "401": {
+            "description": "Yetkisiz giriş!"
+          },
+          "200": {
+            "description": "Başarılı istek."
+          }
+        },
+        "security": [
+          {
+            "auth": []
+          }
+        ]
+      }
+    }
+  }
+}
